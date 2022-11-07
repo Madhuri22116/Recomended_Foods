@@ -89,5 +89,5 @@ import pickle
 pickle.dump(regressor, open('model1.pkl','wb'))
 
 # Loading model to compare the results
-model1 = pickle.load(open('model1.pkl','rb'))
+#model1 = pickle.load(open('model1.pkl','rb'))
 #print(model1.predict([[2,0,68,10,23]]))
