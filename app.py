@@ -20,21 +20,22 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
+    if request.method == 'POST':
     
-    MealType = int(request.form['PreferredMealType'])
-    FoodType = int(request.form['PreferredFoodType'])
-    MainIngredient = int(request.form['MainIngredient'])
-    Highpreferred = int(request.form['HighlypreferredIngredient'])
-    Lowpreferred = int(request.form['LowpreferredIngredient'])
-    features = pd.DataFrame(columns=['MealType','FoodType','MainIngredient','Highpreferred','Lowpreferred'])
-    features['MealType'] = MealType
-    features['FoodType'] = FoodType
-    features['MainIngredient'] = MainIngredient
-    features['Highpreferred'] = Highpreferred
-    features['Lowpreferred'] = Lowpreferred
-    prediction = model.predict([[MealType,FoodType,MainIngredient,Highpreferred,Lowpreferred]])
+        MealType = int(request.form['PreferredMealType'])
+        FoodType = int(request.form['PreferredFoodType'])
+        MainIngredient = int(request.form['MainIngredient'])
+        Highpreferred = int(request.form['HighlypreferredIngredient'])
+        Lowpreferred = int(request.form['LowpreferredIngredient'])
+        features = pd.DataFrame(columns=['MealType','FoodType','MainIngredient','Highpreferred','Lowpreferred'])
+        features['MealType'] = MealType
+        features['FoodType'] = FoodType
+        features['MainIngredient'] = MainIngredient
+        features['Highpreferred'] = Highpreferred
+        features['Lowpreferred'] = Lowpreferred
+        prediction = model.predict([[MealType,FoodType,MainIngredient,Highpreferred,Lowpreferred]])
     
-    return render_template('index.html', prediction_text=prediction)
+        return render_template('index.html', prediction_text=prediction)
     
 
     
