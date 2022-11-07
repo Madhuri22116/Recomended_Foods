@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Nov  4 11:59:41 2022
-
-@author: Gopinaath
-"""
-
 from flask import Flask, render_template, request, jsonify
 import numpy as np
 import pandas as pd
@@ -43,6 +36,6 @@ def predict():
     
                     
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=False)
+    app.run(debug=False, use_reloader=False)
     
     
